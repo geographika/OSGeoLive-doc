@@ -20,11 +20,11 @@ addons:
       - python-sphinx
       - graphviz
       - cpanminus
+      - zip
 
 install:
-  - pip install sphinx==1.6.5
-  - pip install sphinx-intl
-  - pip install sphinxjp.themes.revealjs
+  - python -m pip install --upgrade pip
+  - pip install -r requirements.txt
   - sudo cpanm -f -n Text::SimpleTable::AutoWidth
 
 script: 
@@ -37,6 +37,7 @@ script:
   - bash scripts/clean-images.sh
   - touch build/doc/_build/html/.nojekyll # needed for gh pages to keep dirs starting with _
   - du -h build/doc/_build/html
+  - zip -r osgeolive-docs.zip build/doc/_build/html
 
 # deploy to github pages - see https://docs.travis-ci.com/user/deployment/pages/
 deploy:
