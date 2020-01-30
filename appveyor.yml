@@ -40,7 +40,7 @@ build_script:
 
   - mkdir build
   - cd build
-  - cmake -DHTML=ON -DLOCALE=ON -DALL_LANG=ON ..
+  - cmake -DHTML=ON -DALL_LANG=ON ..
   - cmake --build . --config Release
 
 deploy: off
